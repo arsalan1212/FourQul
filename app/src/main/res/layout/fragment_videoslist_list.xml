@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xoredge.tariqjameelbayans.fragments.DashboardFragment">
+    tools:context="com.xoredge.tariqjameelbayans.VideosListFragment">
 
     <!-- A RecyclerView with some commonly used attributes -->
     <android.support.v7.widget.RecyclerView

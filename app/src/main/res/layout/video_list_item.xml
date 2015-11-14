@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp"
-    android:id="@+id/task_list_item">
+    android:id="@+id/video_list_item">
 
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="This is task title"
-        android:id="@+id/task_title"
+        android:id="@+id/video_title"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Address , XYZ, America"
-        android:id="@+id/task_text1"
-        android:layout_below="@+id/task_title"
+        android:id="@+id/video_location"
+        android:layout_below="@+id/video_title"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:padding="2dp" />
@@ -36,75 +36,34 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Time 12:20 PM"
-        android:id="@+id/task_text2"
-        android:layout_below="@+id/task_text1"
+        android:id="@+id/video_time"
+        android:padding="2dp"
+        android:layout_below="@+id/video_location"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="2dp" />
+        android:layout_alignParentStart="true" />
 
 
-    <com.gc.materialdesign.views.ButtonFlat
-        android:id="@+id/task_btnPositive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#1E88E5"
-        android:text="Mark Status"
-        android:padding="10dp"
-        android:layout_below="@+id/task_description"
-        android:layout_alignLeft="@+id/task_description"
-        android:layout_alignStart="@+id/task_description" />/>
 
-    <com.gc.materialdesign.views.ButtonFlat
-        android:id="@+id/task_btnNegative"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_alignBottom="@+id/task_btnPositive"
-        android:layout_toRightOf="@+id/task_btnPositive"
-        android:layout_toEndOf="@+id/task_btnPositive"
-        android:background="#1E88E5"
-        android:text="Cancel" />
-    <com.gc.materialdesign.views.ButtonFlat
-        android:id="@+id/task_btnDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_alignBottom="@+id/task_btnNegative"
-        android:layout_toRightOf="@+id/task_btnNegative"
-        android:layout_toEndOf="@+id/task_btnNegative"
-        android:background="#1E88E5"
-        android:text="Details" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="This is task description"
-        android:id="@+id/task_description"
+        android:id="@+id/video_description"
         android:padding="2dp"
-        android:layout_below="@+id/task_text3"
+        android:layout_below="@+id/video_time"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Status Assigned"
-        android:id="@+id/task_text3"
-        android:layout_below="@+id/task_text2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="2dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/task_textNumber"
-        android:layout_alignParentTop="true"
+        android:text="Play"
+        android:id="@+id/video_play"
+        android:layout_alignBottom="@+id/video_description"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
