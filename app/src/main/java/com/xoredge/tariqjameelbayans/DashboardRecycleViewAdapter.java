@@ -1,34 +1,40 @@
 package com.xoredge.tariqjameelbayans;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import models.Video;
 
 /**
  * Created by Ahmad Ali on 11/15/2015.
  */
 public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardRecycleViewAdapter.ViewHolder> {
 
-    private LinkedHashMap<Integer, Video> videos;
+    private LinkedHashMap<String, Video> videos;
     private int videoCardLayout;
+    Context context;
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DashboardRecycleViewAdapter(List<Video> videos, int videoCardLayout) {
+    public DashboardRecycleViewAdapter(List<Video> videos, int videoCardLayout, Context context) {
         setVideos(videos == null ? new ArrayList<Video>() : videos);
         this.videoCardLayout = videoCardLayout;
+        this.context = context;
     }
 
     public void setVideos(List<Video> videos) {
@@ -36,13 +42,13 @@ public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardR
         Video video;
         for (int i = 0; i < videos.size(); i++) {
             video = videos.get(i);
-            this.videos.put(video.Id, video);
+            this.videos.put(video.id, video);
         }
     }
 
     public void updateVideo(Video video) {
         if (videos != null) {
-            videos.put(video.Id, video);
+            videos.put(video.id, video);
         }
     }
 
@@ -51,22 +57,26 @@ public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardR
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        @InjectView(R.id.video_title)
+        @Bind(R.id.video_title)
         TextView mVideoTitle;
-        @InjectView(R.id.video_description)
-        TextView mVideoDescription;
-        @InjectView(R.id.video_location)
-        TextView mVideoLocation;
-        @InjectView(R.id.video_time)
+
+        @Bind(R.id.video_dekh)
+        TextView videoViews;
+
+        @Bind(R.id.video_duration)
+        TextView mVideoDuration;
+
+        @Bind(R.id.video_time)
         TextView mVideoTime;
-        @InjectView(R.id.video_play)
-        TextView mVideoBtnPlay;
 
+        @Bind(R.id.video_thumb)
+        ImageView mVideo_thumb;
 
+        //
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
@@ -85,19 +95,33 @@ public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardR
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        List<Video> vidoesList = new ArrayList<Video>(videos.values());
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final List<Video> vidoesList = new ArrayList<Video>(videos.values());
         final Video videoEntity = vidoesList.get(position);
-        holder.mVideoTitle.setText(videoEntity.Name);
-        holder.mVideoDescription.setText(videoEntity.Description);
-        holder.mVideoLocation.setText(videoEntity.Location);
-        holder.mVideoTime.setText(videoEntity.Time);
-        holder.mVideoBtnPlay.setOnClickListener(new View.OnClickListener() {
+        holder.mVideoTitle.setText(videoEntity.title);
+        holder.videoViews.setText("Views: "+videoEntity.views_total);
+        int timeSecs = Integer.parseInt(videoEntity.duration);
+        int hours = timeSecs / 3600;
+        int minutes = (timeSecs % 3600) / 60;
+        int seconds = timeSecs % 60;
+
+        String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+
+        holder.mVideoDuration.setText("Duration: "+timeString);
+        holder.mVideoTime.setText(videoEntity.record_start_time);
+        String url = "http://www.dailymotion.com/thumbnail/video/"+videoEntity.id;
+
+        holder.mVideo_thumb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("VideoApp","Play Video Now");
+                Intent videoIntent = new Intent(context,VideoActivity.class);
+                videoIntent.putExtra("videoId",videoEntity.id);
+                videoIntent.putExtra("videoTitle",videoEntity.title);
+                context.startActivity(videoIntent);
             }
         });
+
+        Picasso.with(context).load(url).into(holder.mVideo_thumb);
 
     }
 

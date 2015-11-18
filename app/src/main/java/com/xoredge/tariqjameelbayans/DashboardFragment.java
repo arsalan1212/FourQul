@@ -5,21 +5,28 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.xoredge.tariqjameelbayans.dummy.DummyContent;
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import events.VideosLoadedEvent;
+import models.DM_VideoResponse;
+import models.Video;
+import network.EndPointVideos;
+import network.RetroGetService;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class DashboardFragment extends Fragment {
 
@@ -30,12 +37,9 @@ public class DashboardFragment extends Fragment {
     private DashboardRecycleViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    @InjectView(R.id.recycler_view_dashboard) RecyclerView mRecyclerView;
+    @Bind(R.id.recycler_view_dashboard)
+    RecyclerView mRecyclerView;
 
-    @InjectView(R.id.emptyText)
-    TextView mEmptyTextView;
-
-    //
     /**
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
@@ -82,7 +86,7 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_videoslist_list, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
@@ -91,39 +95,14 @@ public class DashboardFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        ArrayList<Video> sampleVideos = new ArrayList<>();
-        Video vid = new Video();
-        vid.Name = "Izzate Nafs";
-        vid.Description = "Bayan on respecting others";
-        vid.Location="Faisalabad";
-        vid.Time="Jan, 12, 2015";
-        vid.Id=1;
-        vid.Link = "http://youtube.com/?v=abcdef";
-        sampleVideos.add(0,vid);
-        Video vid1 = new Video();
-        vid1.Id=2;
-        vid1.Name = "Love and Hatred";
-        vid1.Description = "Bayan on respecting others";
-        sampleVideos.add(1,vid1);
-        Video vid2 = new Video();
-        vid2.Id=3;
-        vid2.Name = "Parents prayers";
-        vid2.Description = "Bayan on respecting others";
-        sampleVideos.add(2,vid2);
-        Video vid3 = new Video();
-        vid3.Id=3;
-        vid3.Name = "Playing with Children";
-        vid3.Description = "Bayan on respecting others";
-        sampleVideos.add(3,vid3);
-
         //_userService.setLoggedUserLatestLocation(userLoggedIn.getLocation());
-        mAdapter = new DashboardRecycleViewAdapter(sampleVideos,R.layout.video_card_item);
+        mAdapter = new DashboardRecycleViewAdapter(null, R.layout.video_card_item,getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         // Set the adapter
 
         // Set OnItemClickListener so we can be notified on item clicks
-        LoadEmployeeJobs();
+        LoadVideosJobs();
 
         //
 
@@ -141,9 +120,31 @@ public class DashboardFragment extends Fragment {
 
     }
 
-    private void LoadEmployeeJobs() {
+    @Subscribe
+    public void VideosLoaded(VideosLoadedEvent vle) {
+        mAdapter.setVideos(vle.videosList);
     }
 
+    private void LoadVideosJobs() {
+        Log.d("RETROFIT CALL ","Making Call...........");
+        EndPointVideos servVids = RetroGetService.createService(EndPointVideos.class);
+        Call<DM_VideoResponse> callback =  servVids.getByPlaylist("x3ig5c",100,"id,title,views_total,record_start_time,duration");
+
+        callback.enqueue(new Callback<DM_VideoResponse>() {
+            @Override
+            public void onResponse(Response<DM_VideoResponse> response, Retrofit retrofit) {
+               Log.d("RETROFIT Received ", response.body().list.size()+"");
+                mAdapter.setVideos(response.body().list);
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.e("RETROFIT","ex"+t.getMessage());
+            }
+        });
+
+    }
 
 
 }

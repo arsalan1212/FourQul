@@ -1,69 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_list_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
-    android:id="@+id/video_list_item">
-
-
+    android:orientation="vertical"
+    android:padding="12dp">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="This is task title"
         android:id="@+id/video_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingLeft="2dp"
-        android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:paddingRight="2dp" />
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="5dp"
+        android:text="This is task title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Address , XYZ, America"
-        android:id="@+id/video_location"
-        android:layout_below="@+id/video_title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="2dp" />
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:id="@+id/relativeLayout">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Time 12:20 PM"
-        android:id="@+id/video_time"
-        android:padding="2dp"
-        android:layout_below="@+id/video_location"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <ImageView
+            android:id="@+id/video_thumb"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="10dp"/>
 
+        <TextView
+            android:id="@+id/video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/video_thumb"
+            android:layout_marginTop="50px"
+            android:padding="2dp"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="This is task description"
-        android:id="@+id/video_description"
-        android:padding="2dp"
-        android:layout_below="@+id/video_time"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play"
-        android:id="@+id/video_play"
-        android:layout_alignBottom="@+id/video_description"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <TextView
+            android:id="@+id/video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/video_thumb"
+            android:layout_below="@+id/video_duration"
+            android:padding="2dp"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/video_dekh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/video_thumb"
+            android:layout_below="@+id/video_time"
+            android:padding="2dp"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
