@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.google.android.gms.ads.InterstitialAd;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import models.Video;
+import com.xoredge.tariqjameelbayans.models.Video;
 
 /**
  * Created by Ahmad Ali on 11/15/2015.
@@ -27,14 +28,16 @@ public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardR
 
     private LinkedHashMap<String, Video> videos;
     private int videoCardLayout;
+    InterstitialAd mInterstitialAd;
     Context context;
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DashboardRecycleViewAdapter(List<Video> videos, int videoCardLayout, Context context) {
+    public DashboardRecycleViewAdapter(List<Video> videos, int videoCardLayout, Context context, InterstitialAd intAdView ) {
         setVideos(videos == null ? new ArrayList<Video>() : videos);
         this.videoCardLayout = videoCardLayout;
         this.context = context;
+        this.mInterstitialAd = intAdView;
     }
 
     public void setVideos(List<Video> videos) {
@@ -42,14 +45,19 @@ public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardR
         Video video;
         for (int i = 0; i < videos.size(); i++) {
             video = videos.get(i);
-            this.videos.put(video.id, video);
+            this.videos.put(video.vid, video);
         }
     }
 
     public void updateVideo(Video video) {
         if (videos != null) {
-            videos.put(video.id, video);
+            videos.put(video.vid, video);
         }
+    }
+
+    public void clearAll() {
+        this.videos.clear();
+        this.notifyDataSetChanged();
     }
 
     // Provide a reference to the views for each data item
@@ -109,15 +117,18 @@ public class DashboardRecycleViewAdapter extends RecyclerView.Adapter<DashboardR
 
         holder.mVideoDuration.setText("Duration: "+timeString);
         holder.mVideoTime.setText(videoEntity.record_start_time);
-        String url = "http://www.dailymotion.com/thumbnail/video/"+videoEntity.id;
+        String url = "http://www.dailymotion.com/thumbnail/video/"+videoEntity.vid;
 
         holder.mVideo_thumb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent videoIntent = new Intent(context,VideoActivity.class);
-                videoIntent.putExtra("videoId",videoEntity.id);
+                videoIntent.putExtra("videoId",videoEntity.vid);
                 videoIntent.putExtra("videoTitle",videoEntity.title);
                 context.startActivity(videoIntent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
             }
         });
 

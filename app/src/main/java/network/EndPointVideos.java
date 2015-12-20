@@ -1,7 +1,7 @@
 package network;
 
-import models.DM_VideoResponse;
-import models.Video;
+import com.xoredge.tariqjameelbayans.models.DM_VideoResponse;
+import com.xoredge.tariqjameelbayans.models.Video;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public interface EndPointVideos {
     Video get(@Path("id") String id);
 
     @GET("/playlist/{id}/videos")
-    Call<DM_VideoResponse> getByPlaylist(@Path("id") String id,@Query("limit") int limit,@Query("fields") String fields);
+    Call<DM_VideoResponse> getByPlaylist(@Path("id") String id,@Query("limit") int limit,@Query("page") int page,@Query("fields") String fields);
 
 
     @GET("/employeeJobs/0/")

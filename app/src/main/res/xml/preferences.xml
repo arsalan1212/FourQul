@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_notfications"
+        android:key="pref_key_storage_settings">
+        <CheckBoxPreference
+            android:key="pref_key_notif_daily"
+            android:summary="@string/pref_summary_notif_daily"
+            android:title="@string/pref_title_notif_daily"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="pref_key_notif_weekly"
+            android:summary="@string/pref_summary_notif_weekly"
+            android:title="@string/pref_title_notif_weekly"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

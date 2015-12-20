@@ -179,7 +179,7 @@ public class DMWebVideoView extends WebView {
         /**
          * As we don't want the touch events to be processed by the underlying WebView, we do not set the WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE flag
          * But then we have to handle directly back press in our View to exit fullscreen.
-         * Otherwise the back button will be handled by the topmost Window, id-est the player controller
+         * Otherwise the back button will be handled by the topmost Window, vid-est the player controller
          */
         mVideoLayout = new FrameLayout(getContext()) {
 

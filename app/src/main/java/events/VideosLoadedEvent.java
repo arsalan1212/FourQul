@@ -1,6 +1,6 @@
 package events;
 
-import models.Video;
+import com.xoredge.tariqjameelbayans.models.Video;
 
 import java.util.List;
 

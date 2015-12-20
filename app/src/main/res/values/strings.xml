@@ -17,4 +17,14 @@
     <string name="emptyVideoListText">No Vidoes</string>
     <string name="title_activity_video">Tariq Jameel Bayans</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="favourite">Favourite</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="company_name">XorEdge</string>
+    <string name="pref_notfications">Notifications</string>
+    <string name="pref_summary_notif_daily">Show a daily bayyan notification at 9 PM</string>
+    <string name="pref_title_notif_daily">Daily Bayyan</string>
+    <string name="pref_summary_notif_weekly">Weekly bayyan notification on Sunday 9 AM</string>
+    <string name="pref_title_notif_weekly">Weekly Bayyan</string>
+    <string name="company_email">info@xoredge.com</string>
 </resources>
