@@ -1,5 +1,33 @@
 <resources>
-    <string name="app_name">Tariq Jameel Bayans</string>
+    <string name="app_name">4 Qul</string>
+    <string name="drawer_subheading">4 Qul Recitation</string>
+    <string name="version">Version 1.0</string>
+    <string name="notification_msg">Watch 4 Qul Beautiful Recitation NOW</string>
+
+    <!--            <string name="admob_banner_content">ca-app-pub-3940256099942544/6300978111</string>
+                <string name="admob_banner_main">ca-app-pub-3940256099942544/6300978111</string>
+                <string name="admob_interstitial_dashboard">ca-app-pub-3940256099942544/1033173712</string>-->
+
+    <string name="admob_banner_main">ca-app-pub-4587822745173962/7882501333</string>
+    <string name="admob_banner_content">ca-app-pub-4587822745173962/9359234535</string>
+    <string name="admob_interstitial_dashboard">ca-app-pub-4587822745173962/1835967736</string>
+    <string name="admob_interstitial_splash">ca-app-pub-4587822745173962/3312700931</string>
+
+    <string name="share_message">Download the Best Application of 4 Qul Recitation– Free, Download Now! at:\nhttps://play.google.com/store/apps/details?id=com.FourQul</string>
+
+    <string name="home">Home</string>
+    <string name="all_qul">All Qul</string>
+    <string name="all_videos_urdu"><b>4 Qul Recitation\n4 قل</b></string>
+    <string name="all_videos_arabic"><b>4 Qul\nwith Translation</b></string>
+    <string name="trending">Latest Videos</string>
+    <string name="favorites">Favorite Videos</string>
+    <string name="settings">Settings</string>
+    <string name="share_app">Share App</string>
+    <string name="feedback">Feedback</string>
+    <string name="more_apps">More Apps</string>
+    <string name="check_for_updates">Check for Updates</string>
+    <string name="about_us">About Us</string>
+    <string name="rate_us">Rate Us</string>
 
     <string name="title_section1">Home</string>
     <string name="title_section2">Settings</string>
@@ -15,16 +43,24 @@
 
     <string name="action_settings">Settings</string>
     <string name="emptyVideoListText">No Vidoes</string>
-    <string name="title_activity_video">Tariq Jameel Bayans</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_video"></string>
+    <string name="title_activity_main2"></string>
     <string name="favourite">Favourite</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="company_name">XorEdge</string>
+    <string name="company_name"></string>
     <string name="pref_notfications">Notifications</string>
-    <string name="pref_summary_notif_daily">Show a daily bayyan notification at 9 PM</string>
-    <string name="pref_title_notif_daily">Daily Bayyan</string>
-    <string name="pref_summary_notif_weekly">Weekly bayyan notification on Sunday 9 AM</string>
-    <string name="pref_title_notif_weekly">Weekly Bayyan</string>
-    <string name="company_email">info@xoredge.com</string>
+    <string name="pref_summary_notif_daily">Show a daily notification at 9 PM</string>
+    <string name="pref_title_notif_daily">Daily Notification</string>
+    <string name="pref_summary_notif_weekly">Weekly notification on Sunday 9 AM</string>
+    <string name="pref_title_notif_weekly">Weekly Notification</string>
+    <string name="company_email">info@guidedkeys.com</string>
+    <string name="surah_al_kafirun">Surah Al Kafirun</string>
+    <string name="surah_al_ikhlas">Surah Al Ikhlas</string>
+    <string name="surah_al_falaq">Surah Al Falaq</string>
+    <string name="surah_al_nas">Surah Al Nas</string>
+    <string name="offered_by_guided_keys">Offered By Guided Keys</string>
+    <string name="audio_and_translation">[ Audio and Translation ]</string>
+    <string name="four_qul_of_quran">Four Qul Of Quran</string>
+    <string name="version_2_0">Version 2.0</string>
 </resources>

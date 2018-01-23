@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_favs" android:icon="@android:drawable/btn_star_big_on"
-            android:title="Favourites" />
-        <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
-            android:title="All Vidoes" />
-        <item android:id="@+id/nav_settings" android:icon="@android:drawable/ic_menu_preferences"
-            android:title="Settings" />
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/all_qul"
+            android:icon="@drawable/ic_description_black"
+            android:title="@string/all_qul" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/settings" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-            <item android:id="@+id/nav_rateus" android:icon="@android:drawable/star_big_on"
-            android:title="Feedback" />
-            <item android:id="@+id/nav_aboutus" android:icon="@android:drawable/sym_def_app_icon"
-                android:title="About Us" />
-        </menu>
-    </item>
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share_black"
+            android:title="@string/share_app" />
+        <item
+            android:id="@+id/nav_rateus"
+            android:icon="@drawable/ic_rate_us"
+            android:title="@string/feedback" />
+        <item
+            android:id="@+id/nav_more_apps"
+            android:icon="@drawable/ic_more_horiz_black"
+            android:title="@string/more_apps" />
+        <item
+            android:id="@+id/nav_update_check"
+            android:icon="@drawable/ic_update_check"
+            android:title="@string/check_for_updates" />
+
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/ic_info_outline_black"
+            android:title="@string/about_us" />
+    </group>
 
 </menu>
