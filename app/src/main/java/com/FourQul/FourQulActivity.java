@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -53,14 +54,13 @@ public class FourQulActivity extends AppCompatActivity implements NavigationView
 
         MobileAds.initialize(this);
         AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-
         adView.setAdListener(new AdListener() {
+
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 super.onAdFailedToLoad(errorCode);
                 adView.setVisibility(View.GONE);
-                Log.e("TAG","Four Qul Ad Failed: "+errorCode);
+                Toast.makeText(FourQulActivity.this, "Ad ErrorCode: "+errorCode, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -69,6 +69,7 @@ public class FourQulActivity extends AppCompatActivity implements NavigationView
                 adView.setVisibility(View.VISIBLE);
             }
         });
+        adView.loadAd(adRequest);
 
 
        drawerLayout = findViewById(R.id.drawer_four_qual_layout);
@@ -255,11 +256,15 @@ public class FourQulActivity extends AppCompatActivity implements NavigationView
         try{
 
             if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-                super.onBackPressed();
+
+                drawerLayout.closeDrawer(GravityCompat.START);
             }
             else{
                 visibleContentLayout();
+                super.onBackPressed();
             }
+
+
         }
         catch (Exception e){}
 

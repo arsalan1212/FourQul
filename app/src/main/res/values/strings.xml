@@ -4,14 +4,22 @@
     <string name="version">Version 1.0</string>
     <string name="notification_msg">Watch 4 Qul Beautiful Recitation NOW</string>
 
-    <!--            <string name="admob_banner_content">ca-app-pub-3940256099942544/6300978111</string>
-                <string name="admob_banner_main">ca-app-pub-3940256099942544/6300978111</string>
-                <string name="admob_interstitial_dashboard">ca-app-pub-3940256099942544/1033173712</string>-->
+    <!--Testing Admob ads-->
+    <string name="admob_banner_main">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_banner_content">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_interstitial_dashboard">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_interstitial_splash">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="banner_ads">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="admob_banner_main">ca-app-pub-4587822745173962/7882501333</string>
+    <!--Orignal Admob ads-->
+
+    <!--    <string name="admob_banner_main">ca-app-pub-4587822745173962/7882501333</string>
     <string name="admob_banner_content">ca-app-pub-4587822745173962/9359234535</string>
     <string name="admob_interstitial_dashboard">ca-app-pub-4587822745173962/1835967736</string>
     <string name="admob_interstitial_splash">ca-app-pub-4587822745173962/3312700931</string>
+    <string name="banner_ads">ca-app-pub-1775023839671556/9427143868</string>
+    -->
+
 
     <string name="share_message">Download the Best Application of 4 Qul Recitation– Free, Download Now! at:\nhttps://play.google.com/store/apps/details?id=com.FourQul</string>
 
@@ -63,4 +71,29 @@
     <string name="audio_and_translation">[ Audio and Translation ]</string>
     <string name="four_qul_of_quran">Four Qul Of Quran</string>
     <string name="version_2_0">Version 2.0</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--TODO: QUL NAMES-->
+    <string-array name="qul_names">
+        <item>Al Kafirun</item>
+        <item>Al Ikhlas</item>
+        <item>Al Falaq</item>
+        <item>Al Nas</item>
+    </string-array>
+
+    <!--TODO: QUL ENGLISH NAME TRANSLATION-->
+    <string-array name="qul_name_enlish_translatin">
+        <item>The Disbelievers</item>
+        <item>Fidelity or Sincerity</item>
+        <item>Daybreak</item>
+        <item>Mankind</item>
+    </string-array>
+
+    <!--TODO: 4 QUL ARABIC TEXT -->
+    <string-array name="qul_arabic_text">
+        <item>وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ,وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ,وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ,لَا أَعْبُدُ مَا تَعْبُدُونَ, ِ قُلْ يَا أَيُّهَا الْكَافِرُونَ</item>
+    </string-array>
+
 </resources>

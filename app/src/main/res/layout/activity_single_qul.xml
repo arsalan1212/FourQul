@@ -1,9 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.FourQul.SingleQulActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/PrimaryColor"
+        android:minHeight="64dp"
+        android:id="@+id/layout_qul_title"
+        >
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/img_btn_back"
+            android:background="@drawable/bg_back_button"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="4 Qul Title"
+            android:id="@+id/tv_qul_title"
+            android:textColor="#fff"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"/>
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/img_btn_next"
+            android:background="@drawable/bg_next_button"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#fff"
+        android:id="@+id/veiw_borderTop"
+        android:layout_below="@id/layout_qul_title"/>
+
+
+    <!--tab layout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_tab"
+        android:layout_below="@id/veiw_borderTop"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:id="@+id/layout_tab1"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/tab_bg"
+            android:onClick="TabLayoutListiner">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al Nas"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:id="@+id/tv_qul_nm"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al Nas Trans"
+                android:textColor="#fff"
+                android:id="@+id/tv_qul_translation"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:id="@+id/layout_tab2"
+            android:background="@drawable/tab_bg"
+            android:onClick="TabLayoutListiner">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Translation"
+                android:gravity="center"
+                android:id="@+id/tv_translation"
+                android:textColor="#fff"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="English | Urdu"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:textSize="10sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#fff"
+        android:id="@+id/veiw_borderBottom"
+        android:layout_below="@id/layout_tab" />
+
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:layout_below="@id/veiw_borderBottom"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/admob_banner_content"></com.google.android.gms.ads.AdView>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"
+        android:layout_below="@id/adView_player"
+        android:layout_marginTop="10dp">
+    </FrameLayout>
+
+</RelativeLayout>
